@@ -38,7 +38,7 @@ const ServiceCard = ({
 				className={clsx('grow py-6 lg:py-[5.16rem]', textFirst && 'order-1')}
 			>
 				<p className='font-medium text-2xl lg:text-[2.5rem] mb-6'>{name}</p>
-				<p className='text-text font-normal text-base lg:text-[1.51rem] lg:leading-10'>
+				<p className='text-text font-normal text-base lg:text-[1.51rem] lg:leading-10 font-aeonik'>
 					{description}
 				</p>
 			</div>

@@ -10,7 +10,7 @@ const Footer = ({ services, setServices }: FooterProps) => {
 	return (
 		<footer className='bg-primary text-white font-normal text-sm lg:text-[1.38rem] pt-[3.75rem] pb-[2.85rem] lg:pb-[5.5rem]'>
 			<div className='container mx-auto grid lg:grid-cols-4 gap-x-[9.75rem] px-4 lg:px-0'>
-				<div className=''>
+				<div className='font-aeonik'>
 					<div className='mb-4'>N & Co</div>
 					<div className='mb-4'>
 						31, Biada, Gaa akanbi, Ilorin, <br className='lg:hidden' /> Kwara
@@ -24,7 +24,7 @@ const Footer = ({ services, setServices }: FooterProps) => {
 					<div className='text-base lg:text-[1.63rem] mb-4 mt-[1.9rem] lg:mt-0'>
 						Useful links
 					</div>
-					<ul className='flex flex-col gap-y-1 lg:gap-y-3'>
+					<ul className='flex flex-col gap-y-1 lg:gap-y-3 font-aeonik'>
 						<li>
 							<a href='#hero' title='Home'>
 								Home
@@ -41,7 +41,6 @@ const Footer = ({ services, setServices }: FooterProps) => {
 							</a>
 						</li>
 						<li>
-							text-[1.63rem]
 							<a href='#testimonial' title='Testimonial'>
 								Testimonial
 							</a>
@@ -52,7 +51,7 @@ const Footer = ({ services, setServices }: FooterProps) => {
 					<div className='text-base lg:text-[1.63rem] mb-4 mt-[1.9rem] lg:mt-0'>
 						Our Services
 					</div>
-					<ul className='flex flex-col gap-y-1 lg:gap-y-3'>
+					<ul className='flex flex-col gap-y-1 lg:gap-y-3 font-aeonik'>
 						{services.map((service, index) => (
 							<li key={`footer-service-${index}`}>
 								<a

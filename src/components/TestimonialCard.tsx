@@ -24,7 +24,7 @@ const TestimonialCard = ({
 				/>
 			</div>
 			<div className='font-normal text-sm lg:text-2xl my-6'>{name}</div>
-			<div className='text-text font-normal text-sm lg:text-2xl lg:leading-[2.13rem] mb-6 lg:mb-[4.65rem]'>
+			<div className='text-text font-normal text-sm lg:text-2xl lg:leading-[2.13rem] mb-6 lg:mb-[4.65rem] font-aeonik'>
 				{description}
 			</div>
 		</div>

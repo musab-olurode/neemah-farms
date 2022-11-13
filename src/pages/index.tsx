@@ -142,42 +142,45 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			{mobileMenuOpen && (
-				<div className='fixed h-screen w-screen z-10 bg-text bg-opacity-95 flex items-center justify-center'>
-					<button
-						className='absolute p-4 top-2 right-5'
-						onClick={() => setMobileMenuOpen(false)}
+			<div
+				className={clsx(
+					'fixed h-screen w-screen z-10 bg-white flex items-center justify-center transition-all scale-0 rounded-full rounded-tr-none origin-[calc(100%-2.25rem)_4.75rem]',
+					mobileMenuOpen && ' scale-100 rounded-none'
+				)}
+			>
+				<button
+					className='absolute p-4 top-[3.25rem] right-3'
+					onClick={() => setMobileMenuOpen(false)}
+				>
+					<svg
+						width='30'
+						height='30'
+						viewBox='0 0 16 16'
+						fill='none'
+						xmlns='http://www.w3.org/2000/svg'
 					>
-						<svg
-							width='30'
-							height='30'
-							viewBox='0 0 16 16'
-							fill='none'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								d='M11.9375 3.35951L8.00002 7.29701L4.06252 3.35951C3.95818 3.26584 3.84102 3.21901 3.71102 3.21901C3.58102 3.21901 3.46635 3.26851 3.36702 3.36751C3.26768 3.46651 3.21818 3.58117 3.21852 3.71151C3.21885 3.84184 3.26568 3.95901 3.35902 4.06301L7.29652 8.00051L3.35902 11.938C3.22368 12.0733 3.17935 12.2348 3.22602 12.4225C3.27268 12.6102 3.38735 12.7273 3.57002 12.774C3.75268 12.8207 3.91668 12.7763 4.06202 12.641L7.99952 8.70351L11.937 12.641C12.0413 12.7347 12.1585 12.7815 12.2885 12.7815C12.4185 12.7815 12.5332 12.732 12.6325 12.633C12.7318 12.534 12.7813 12.4193 12.781 12.289C12.7807 12.1587 12.7338 12.0415 12.6405 11.9375L8.70302 8.00001L12.6405 4.06251C12.7758 3.92717 12.8202 3.76567 12.7735 3.57801C12.7268 3.39034 12.6097 3.27317 12.422 3.22651C12.2343 3.17984 12.0728 3.22417 11.9375 3.35951Z'
-								fill='#fff'
-								fillOpacity='0.96'
-							/>
-						</svg>
-					</button>
-					<ul className='flex flex-col gap-y-8 font-normal text-[1.38rem] text-center text-white'>
-						<li>
-							<a href='#hero'>Home</a>
-						</li>
-						<li>
-							<a href='#about-us'>About Us</a>
-						</li>
-						<li>
-							<a href='#services'>Services</a>
-						</li>
-						<li>
-							<a href='#testimonial'>Testimonials</a>
-						</li>
-					</ul>
-				</div>
-			)}
+						<path
+							d='M11.9375 3.35951L8.00002 7.29701L4.06252 3.35951C3.95818 3.26584 3.84102 3.21901 3.71102 3.21901C3.58102 3.21901 3.46635 3.26851 3.36702 3.36751C3.26768 3.46651 3.21818 3.58117 3.21852 3.71151C3.21885 3.84184 3.26568 3.95901 3.35902 4.06301L7.29652 8.00051L3.35902 11.938C3.22368 12.0733 3.17935 12.2348 3.22602 12.4225C3.27268 12.6102 3.38735 12.7273 3.57002 12.774C3.75268 12.8207 3.91668 12.7763 4.06202 12.641L7.99952 8.70351L11.937 12.641C12.0413 12.7347 12.1585 12.7815 12.2885 12.7815C12.4185 12.7815 12.5332 12.732 12.6325 12.633C12.7318 12.534 12.7813 12.4193 12.781 12.289C12.7807 12.1587 12.7338 12.0415 12.6405 11.9375L8.70302 8.00001L12.6405 4.06251C12.7758 3.92717 12.8202 3.76567 12.7735 3.57801C12.7268 3.39034 12.6097 3.27317 12.422 3.22651C12.2343 3.17984 12.0728 3.22417 11.9375 3.35951Z'
+							fill='#000'
+							fillOpacity='0.96'
+						/>
+					</svg>
+				</button>
+				<ul className='flex flex-col gap-y-8 font-normal text-[1.38rem] text-center text-black'>
+					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
+						<a href='#hero'>Home</a>
+					</li>
+					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
+						<a href='#about-us'>About Us</a>
+					</li>
+					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
+						<a href='#services'>Services</a>
+					</li>
+					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
+						<a href='#testimonial'>Testimonials</a>
+					</li>
+				</ul>
+			</div>
 
 			<div
 				id='hero'
@@ -186,15 +189,15 @@ export default function Home() {
 				<Nav onClickMobileMenu={() => setMobileMenuOpen(true)} />
 				<div className='container mx-auto text-center mt-[7.75rem] lg:mt-[13.44rem] pb-[19.15rem] text-white px-4 lg:px-0'>
 					<div className='flex flex-col gap-y-10 lg:w-1/2 mx-auto items-center'>
-						<h1 className='text-[1.7rem] lg:text-[4.25rem] lg:leading-[5.25rem] font-bold'>
+						<h1 className='text-[1.7rem] lg:text-[4.25rem] lg:leading-[5.25rem] font-bold animate-reveal'>
 							Start to contribute with a reliable farmer
 						</h1>
-						<h6 className='text-base lg:text-3xl font-normal'>
+						<h6 className='text-base lg:text-3xl font-normal animate-reveal-1 font-aeonik'>
 							Operation feed the Nation
 						</h6>
 						<a
 							href='#about-us'
-							className='py-4 px-[1.63rem] border border-white bg-white text-black rounded-[6.3rem] w-fit font-normal text-[0.88rem] lg:text-[1.38rem] hover:bg-transparent hover:text-white'
+							className='py-4 px-[1.63rem] border border-white bg-white text-black rounded-[6.3rem] w-fit font-normal text-[0.88rem] lg:text-[1.38rem] hover:bg-transparent hover:text-white animate-reveal-2 font-aeonik'
 						>
 							Learn more
 						</a>
@@ -202,14 +205,14 @@ export default function Home() {
 				</div>
 			</div>
 
-			<main className='pt-24'>
+			<div className='pt-24'>
 				<section id='about-us' className='container mx-auto px-4 lg:px-0'>
 					<p className='text-black font-medium text-[1.565rem] lg:text-[3.5rem]'>
 						About us
 					</p>
 					<div className='grid lg:grid-cols-2 gap-x-[4.38rem] mt-6'>
 						<div>
-							<p className='text-text font-normal text-base lg:text-[1.57rem] lg:leading-10'>
+							<p className='text-text font-normal text-base lg:text-[1.57rem] lg:leading-10 font-aeonik'>
 								Neemah & Co Integrated Farms Ltd is a registered Nigeria Limited
 								liability company domiciled in Kwara state with operations of
 								fish and crop farming for Nigerian consumption and export
@@ -260,14 +263,14 @@ export default function Home() {
 					<div className='text-center'>
 						{services.length === 3 ? (
 							<button
-								className='bg-primary text-white py-4 px-[1.63rem] rounded-[6.3rem] font-normal text-[0.88rem] lg:text-[1.38rem] hover:border hover:border-primary hover:bg-transparent hover:text-primary'
+								className='bg-primary text-white py-4 px-[1.63rem] rounded-[6.3rem] font-normal text-[0.88rem] lg:text-[1.38rem] hover:border hover:border-primary hover:bg-transparent hover:text-primary font-aeonik'
 								onClick={() => setServices(SERVICES)}
 							>
 								Show all
 							</button>
 						) : (
 							<button
-								className='bg-primary text-white py-4 px-[1.63rem] rounded-[6.3rem] font-normal text-[0.88rem] lg:text-[1.38rem] hover:border hover:border-primary hover:bg-transparent hover:text-primary'
+								className='bg-primary text-white py-4 px-[1.63rem] rounded-[6.3rem] font-normal text-[0.88rem] lg:text-[1.38rem] hover:border hover:border-primary hover:bg-transparent hover:text-primary font-aeonik'
 								onClick={() => setServices(SERVICES.slice(0, 3))}
 							>
 								Show less
@@ -281,7 +284,7 @@ export default function Home() {
 						<p className='font-medium text-[1.565rem] lg:text-[3.5rem]'>
 							Investment offerings
 						</p>
-						<div className='text-text font-normal text-base lg:text-[2rem] lg:leading-[3rem] mt-6'>
+						<div className='text-text font-normal text-base lg:text-[2rem] lg:leading-[3rem] mt-6 font-aeonik'>
 							200 million naira investment opportunity with over 70% annual ROI.
 							(Minimum investment 1 Million naira)
 						</div>
@@ -303,7 +306,7 @@ export default function Home() {
 							Why should you invest?
 						</p>
 						<div className='grid lg:grid-cols-2 lg:gap-x-[7.57rem] mt-20 px-4 lg:px-0'>
-							<ol className='list-decimal flex flex-col gap-y-6 font-normal text-base lg:text-2xl lg:leading-8'>
+							<ol className='list-decimal flex flex-col gap-y-6 font-normal text-base lg:text-2xl lg:leading-8 font-aeonik'>
 								<li>
 									It&apos;s an ethical investment with very high Return On
 									Investment (ROI). Let&apos;s your savings work for you and not
@@ -345,7 +348,7 @@ export default function Home() {
 					<p className='text-center text-[1.565rem] lg:text-[3.5rem] font-medium'>
 						How do you invest ?
 					</p>
-					<p className='text-center text-text font-normal text-base lg:text-[1.57rem] mt-4 lg:mt-6'>
+					<p className='text-center text-text font-normal text-base lg:text-[1.57rem] mt-4 lg:mt-6 font-aeonik'>
 						Payments should be made to Neemah & Co Integrated Farms Ltd. <br />{' '}
 						Account as shown below:
 					</p>
@@ -356,27 +359,27 @@ export default function Home() {
 								1
 							</span>
 							<ul className='flex flex-col gap-y-[1.88rem]'>
-								<li className='flex flex-col'>
+								<li className='flex flex-col gap-y-[0.375rem]'>
 									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
 										Account number:
 									</span>
-									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem]'>
+									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
 										0009511763
 									</span>
 								</li>
-								<li className='flex flex-col'>
+								<li className='flex flex-col gap-y-[0.375rem]'>
 									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
 										Bank name:
 									</span>
-									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem]'>
+									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
 										Jaiz bank
 									</span>
 								</li>
-								<li className='flex flex-col'>
+								<li className='flex flex-col gap-y-[0.375rem]'>
 									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
 										Account name:
 									</span>
-									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem]'>
+									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
 										Neemah&Co. Integrated farms Ltd.
 									</span>
 								</li>
@@ -387,27 +390,27 @@ export default function Home() {
 								2
 							</span>
 							<ul className='flex flex-col gap-y-[1.88rem]'>
-								<li className='flex flex-col'>
+								<li className='flex flex-col gap-y-[0.375rem]'>
 									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
 										Account number:
 									</span>
-									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem]'>
+									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
 										1000411658
 									</span>
 								</li>
-								<li className='flex flex-col'>
+								<li className='flex flex-col gap-y-[0.375rem]'>
 									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
 										Bank name:
 									</span>
-									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem]'>
+									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
 										Lotus Bank
 									</span>
 								</li>
-								<li className='flex flex-col'>
+								<li className='flex flex-col gap-y-[0.375rem]'>
 									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
 										Account name:
 									</span>
-									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem]'>
+									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
 										Neemah&Co. Integrated farms Ltd.
 									</span>
 								</li>
@@ -416,10 +419,13 @@ export default function Home() {
 					</div>
 
 					<div className='text-center mt-[4.5rem] font-normal text-base lg:text-[1.57rem]'>
-						<p className='text-text'>
+						<p className='text-text font-aeonik leading-9'>
 							Evidence of payments should be forwarded to Neemah Integrated
 							farms <br /> Whatsapp contact{' '}
-							<a className='text-black font-medium' href='tel:07036663329'>
+							<a
+								className='text-black font-medium  font-space-grotesk'
+								href='tel:07036663329'
+							>
 								07036663329
 							</a>
 						</p>
@@ -531,7 +537,7 @@ export default function Home() {
 						</button>
 					</div>
 				</section>
-			</main>
+			</div>
 
 			<Footer services={SERVICES} setServices={setServices} />
 		</>

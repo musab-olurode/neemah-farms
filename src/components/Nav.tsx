@@ -5,7 +5,7 @@ const Nav = ({ onClickMobileMenu }: { onClickMobileMenu: () => void }) => {
 		<nav className='container mx-auto flex py-[3.25rem] items-center px-4 text-white'>
 			<div className='font-medium text-[2.5rem]'>N & Co</div>
 			<div className='mx-auto hidden lg:block'>
-				<ul className='flex gap-x-8 font-normal text-[1.38rem]'>
+				<ul className='flex gap-x-8 font-normal text-[1.38rem] font-aeonik'>
 					<li>
 						<a href='#hero'>Home</a>
 					</li>
@@ -22,7 +22,7 @@ const Nav = ({ onClickMobileMenu }: { onClickMobileMenu: () => void }) => {
 			</div>
 			<a
 				href='#how-to-invest'
-				className='py-4 px-[1.63rem] border border-white rounded-[6.3rem] font-normal text-[1.38rem] hover:bg-white hover:text-black hidden lg:block'
+				className='py-4 px-[1.63rem] border border-white rounded-[6.3rem] font-normal text-[1.38rem] hover:bg-white hover:text-black hidden lg:block font-aeonik'
 			>
 				Contact us
 			</a>
