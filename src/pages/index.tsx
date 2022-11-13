@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Nav from '../components/Nav';
@@ -158,7 +158,7 @@ export default function Home() {
 							<path
 								d='M11.9375 3.35951L8.00002 7.29701L4.06252 3.35951C3.95818 3.26584 3.84102 3.21901 3.71102 3.21901C3.58102 3.21901 3.46635 3.26851 3.36702 3.36751C3.26768 3.46651 3.21818 3.58117 3.21852 3.71151C3.21885 3.84184 3.26568 3.95901 3.35902 4.06301L7.29652 8.00051L3.35902 11.938C3.22368 12.0733 3.17935 12.2348 3.22602 12.4225C3.27268 12.6102 3.38735 12.7273 3.57002 12.774C3.75268 12.8207 3.91668 12.7763 4.06202 12.641L7.99952 8.70351L11.937 12.641C12.0413 12.7347 12.1585 12.7815 12.2885 12.7815C12.4185 12.7815 12.5332 12.732 12.6325 12.633C12.7318 12.534 12.7813 12.4193 12.781 12.289C12.7807 12.1587 12.7338 12.0415 12.6405 11.9375L8.70302 8.00001L12.6405 4.06251C12.7758 3.92717 12.8202 3.76567 12.7735 3.57801C12.7268 3.39034 12.6097 3.27317 12.422 3.22651C12.2343 3.17984 12.0728 3.22417 11.9375 3.35951Z'
 								fill='#fff'
-								fill-opacity='0.96'
+								fillOpacity='0.96'
 							/>
 						</svg>
 					</button>
@@ -480,7 +480,7 @@ export default function Home() {
 
 					<div
 						ref={carousel}
-						style={{ '--total': TESTIMONIALS.length }}
+						style={{ ['--total' as string]: TESTIMONIALS.length }}
 						className='mt-6 lg:mt-[4.5rem] overflow-x-hidden snap-x snap-mandatory touch-pan-x grid gap-x-[4.75rem] [grid-template-columns:repeat(var(--total),calc(100%))] lg:[grid-template-columns:repeat(var(--total),calc(50%-4.75rem/2))] pb-5'
 					>
 						{TESTIMONIALS.map((testimonial, index) => (

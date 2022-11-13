@@ -27,7 +27,7 @@ const Nav = ({ onClickMobileMenu }: { onClickMobileMenu: () => void }) => {
 				Contact us
 			</a>
 			<div className='ml-auto lg:hidden relative'>
-				<button className='p-4 z-[999]' onClick={onClickMobileMenu}>
+				<button className='p-4' onClick={onClickMobileMenu}>
 					<svg
 						width='20'
 						height='16'
@@ -41,8 +41,8 @@ const Nav = ({ onClickMobileMenu }: { onClickMobileMenu: () => void }) => {
 							x2='17.25'
 							y2='1.25'
 							stroke='white'
-							stroke-width='1.5'
-							stroke-linecap='round'
+							strokeWidth='1.5'
+							strokeLinecap='round'
 						/>
 						<line
 							x1='0.75'
@@ -50,8 +50,8 @@ const Nav = ({ onClickMobileMenu }: { onClickMobileMenu: () => void }) => {
 							x2='17.25'
 							y2='7.25'
 							stroke='white'
-							stroke-width='1.5'
-							stroke-linecap='round'
+							strokeWidth='1.5'
+							strokeLinecap='round'
 						/>
 						<line
 							x1='0.75'
@@ -59,11 +59,11 @@ const Nav = ({ onClickMobileMenu }: { onClickMobileMenu: () => void }) => {
 							x2='17.25'
 							y2='13.25'
 							stroke='white'
-							stroke-width='1.5'
-							stroke-linecap='round'
+							strokeWidth='1.5'
+							strokeLinecap='round'
 						/>
-						<div className='sr-only'>Menu</div>
 					</svg>
+					<div className='sr-only'>Menu</div>
 				</button>
 			</div>
 		</nav>
