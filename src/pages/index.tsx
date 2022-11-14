@@ -212,7 +212,7 @@ export default function Home() {
 						onClickMobileMenu={() => setMobileMenuOpen(true)}
 					/>
 				</InView>
-				<div className='container mx-auto text-center mt-[7.75rem] lg:mt-[13.44rem] pb-[19.15rem] text-white px-4 lg:px-0'>
+				<div className='container mx-auto text-center mt-[11rem] lg:mt-[13.44rem] pb-[19.15rem] text-white px-4 lg:px-0'>
 					<div className='flex flex-col gap-y-10 lg:w-1/2 mx-auto items-center'>
 						<h1 className='text-[1.7rem] lg:text-[4.25rem] lg:leading-[5.25rem] font-bold animate-reveal'>
 							Start to contribute with a reliable farmer

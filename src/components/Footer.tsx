@@ -13,11 +13,11 @@ const Footer = ({ services, setServices }: FooterProps) => {
 		<footer className='bg-primary text-white font-normal text-sm lg:text-[1.38rem] pt-[3.75rem] pb-[2.85rem] lg:pb-[5.5rem]'>
 			<div className='container mx-auto grid lg:grid-cols-4 gap-x-[9.75rem] px-4 lg:px-0'>
 				<div className='font-aeonik'>
-					<div className='relative w-[6.65rem] h-[6.65rem] mb-4'>
+					<div className='relative w-[3.875rem] h-[3.875rem] lg:w-[6.65rem] lg:h-[6.65rem] mb-4'>
 						<Image
 							className='object-contain'
 							src={LogoStrokedImg}
-							alt='Picture of 2 people holding hands while on skateboards'
+							alt='Logo'
 							placeholder='blur'
 							fill
 						/>

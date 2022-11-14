@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
 import LogoImg from '../../public/logo.png';
+import LogoSMImg from '../../public/logo-sm.png';
 
 const Nav = ({
 	mobileMenuOpen,
@@ -13,12 +14,21 @@ const Nav = ({
 	navInView: boolean;
 }) => {
 	return (
-		<nav className='container mx-auto flex py-[3.25rem] items-center px-4 text-white'>
-			<div className='relative w-[6.47rem] h-[6.65rem]'>
+		<nav className='container mx-auto flex pt-[3.25rem] items-center px-4 text-white'>
+			<div className='relative lg:hidden w-[2.935rem] h-[3rem]'>
+				<Image
+					className='object-contain'
+					src={LogoSMImg}
+					alt='Logo'
+					placeholder='blur'
+					fill
+				/>
+			</div>
+			<div className='hidden lg:relative w-[6.47rem] h-[6.65rem]'>
 				<Image
 					className='object-contain'
 					src={LogoImg}
-					alt='Picture of 2 people holding hands while on skateboards'
+					alt='Logo'
 					placeholder='blur'
 					fill
 				/>
@@ -47,9 +57,9 @@ const Nav = ({
 			</a>
 			<div
 				className={clsx(
-					'ml-auto lg:hidden fixed right-4 z-20',
+					'ml-auto lg:hidden right-4 z-20',
 					mobileMenuOpen && 'hidden',
-					!navInView && 'top-4'
+					!navInView && 'fixed top-4'
 				)}
 			>
 				<button
