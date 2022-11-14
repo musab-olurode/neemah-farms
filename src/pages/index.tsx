@@ -16,6 +16,7 @@ import TestimonialAvatarImg from '../../public/testimonial-avatar.png';
 import TestimonialCard from '../components/TestimonialCard';
 import clsx from 'clsx';
 import Footer from '../components/Footer';
+import { InView } from 'react-intersection-observer';
 
 const SERVICES = [
 	{
@@ -87,6 +88,7 @@ export default function Home() {
 	const [services, setServices] = useState(SERVICES.slice(0, 3));
 	const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const [navInView, setNavInView] = useState(true);
 	const maxScrollWidth = useRef(0);
 	const carousel = useRef<HTMLDivElement>(null);
 
@@ -149,7 +151,10 @@ export default function Home() {
 				)}
 			>
 				<button
-					className='absolute p-4 top-[3.25rem] right-3'
+					className={clsx(
+						'absolute p-4 top-[3.25rem] right-3',
+						!navInView && 'top-4'
+					)}
 					onClick={() => setMobileMenuOpen(false)}
 				>
 					<svg
@@ -168,16 +173,24 @@ export default function Home() {
 				</button>
 				<ul className='flex flex-col gap-y-8 font-normal text-[1.38rem] text-center text-black'>
 					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
-						<a href='#hero'>Home</a>
+						<a href='#hero' onClick={() => setMobileMenuOpen(false)}>
+							Home
+						</a>
 					</li>
 					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
-						<a href='#about-us'>About Us</a>
+						<a href='#about-us' onClick={() => setMobileMenuOpen(false)}>
+							About Us
+						</a>
 					</li>
 					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
-						<a href='#services'>Services</a>
+						<a href='#services' onClick={() => setMobileMenuOpen(false)}>
+							Services
+						</a>
 					</li>
 					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
-						<a href='#testimonial'>Testimonials</a>
+						<a href='#testimonial' onClick={() => setMobileMenuOpen(false)}>
+							Testimonials
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -186,7 +199,13 @@ export default function Home() {
 				id='hero'
 				className='[background-image:url("/hero-bg.png")] bg-no-repeat bg-cover bg-center'
 			>
-				<Nav onClickMobileMenu={() => setMobileMenuOpen(true)} />
+				<InView onChange={(inView) => setNavInView(inView)}>
+					<Nav
+						mobileMenuOpen={mobileMenuOpen}
+						navInView={navInView}
+						onClickMobileMenu={() => setMobileMenuOpen(true)}
+					/>
+				</InView>
 				<div className='container mx-auto text-center mt-[7.75rem] lg:mt-[13.44rem] pb-[19.15rem] text-white px-4 lg:px-0'>
 					<div className='flex flex-col gap-y-10 lg:w-1/2 mx-auto items-center'>
 						<h1 className='text-[1.7rem] lg:text-[4.25rem] lg:leading-[5.25rem] font-bold animate-reveal'>

@@ -1,9 +1,28 @@
+import clsx from 'clsx';
+import Image from 'next/image';
 import React from 'react';
+import LogoImg from '../../public/logo.png';
 
-const Nav = ({ onClickMobileMenu }: { onClickMobileMenu: () => void }) => {
+const Nav = ({
+	mobileMenuOpen,
+	navInView,
+	onClickMobileMenu,
+}: {
+	onClickMobileMenu: () => void;
+	mobileMenuOpen: boolean;
+	navInView: boolean;
+}) => {
 	return (
 		<nav className='container mx-auto flex py-[3.25rem] items-center px-4 text-white'>
-			<div className='font-medium text-[2.5rem]'>N & Co</div>
+			<div className='relative w-[6.47rem] h-[6.65rem]'>
+				<Image
+					className='object-contain'
+					src={LogoImg}
+					alt='Picture of 2 people holding hands while on skateboards'
+					placeholder='blur'
+					fill
+				/>
+			</div>
 			<div className='mx-auto hidden lg:block'>
 				<ul className='flex gap-x-8 font-normal text-[1.38rem] font-aeonik'>
 					<li>
@@ -26,8 +45,17 @@ const Nav = ({ onClickMobileMenu }: { onClickMobileMenu: () => void }) => {
 			>
 				Contact us
 			</a>
-			<div className='ml-auto lg:hidden relative'>
-				<button className='p-4' onClick={onClickMobileMenu}>
+			<div
+				className={clsx(
+					'ml-auto lg:hidden fixed right-4 z-20',
+					mobileMenuOpen && 'hidden',
+					!navInView && 'top-4'
+				)}
+			>
+				<button
+					className={clsx('p-4', !navInView && 'bg-text')}
+					onClick={onClickMobileMenu}
+				>
 					<svg
 						width='20'
 						height='16'

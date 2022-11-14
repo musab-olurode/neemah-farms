@@ -1,5 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { ServiceCardProps } from './ServiceCard';
+import LogoStrokedImg from '../../public/logo-stroked.png';
+import Image from 'next/image';
 
 export interface FooterProps {
 	services: ServiceCardProps[];
@@ -11,8 +13,16 @@ const Footer = ({ services, setServices }: FooterProps) => {
 		<footer className='bg-primary text-white font-normal text-sm lg:text-[1.38rem] pt-[3.75rem] pb-[2.85rem] lg:pb-[5.5rem]'>
 			<div className='container mx-auto grid lg:grid-cols-4 gap-x-[9.75rem] px-4 lg:px-0'>
 				<div className='font-aeonik'>
-					<div className='mb-4'>N & Co</div>
-					<div className='mb-4'>
+					<div className='relative w-[6.65rem] h-[6.65rem] mb-4'>
+						<Image
+							className='object-contain'
+							src={LogoStrokedImg}
+							alt='Picture of 2 people holding hands while on skateboards'
+							placeholder='blur'
+							fill
+						/>
+					</div>
+					<div className='mb-4 leading-[2.125rem]'>
 						31, Biada, Gaa akanbi, Ilorin, <br className='lg:hidden' /> Kwara
 						State, Nigeria.
 					</div>
