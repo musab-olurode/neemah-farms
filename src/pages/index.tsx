@@ -203,7 +203,7 @@ export default function Home() {
 
 			<div
 				id='hero'
-				className='[background-image:url("/hero-bg.png")] bg-no-repeat bg-cover bg-center'
+				className='bg-text [background-image:url("/hero-bg.png")] bg-no-repeat bg-cover bg-center'
 			>
 				<InView onChange={(inView) => setNavInView(inView)}>
 					<Nav
