@@ -12,8 +12,14 @@ import CatFishImg from '../../public/cat-fish.png';
 import ServiceCard from '../components/ServiceCard';
 import InvestmentImg from '../../public/investment.png';
 import WhyInvestImg from '../../public/why-invest.png';
-import TestimonialAvatarImg from '../../public/testimonial-avatar.png';
-import TestimonialCard from '../components/TestimonialCard';
+import PastExperience1Img from '../../public/past-experience-1.jpg';
+import PastExperience2Img from '../../public/past-experience-2.jpg';
+import PastExperience3Img from '../../public/past-experience-3.jpg';
+import PastExperience4Img from '../../public/past-experience-4.jpg';
+import PastExperience5Img from '../../public/past-experience-5.jpg';
+import PastExperience6Img from '../../public/past-experience-6.jpg';
+import PastExperience7Img from '../../public/past-experience-7.jpg';
+import PastExperienceCard from '../components/PastExperienceCard';
 import clsx from 'clsx';
 import Footer from '../components/Footer';
 import { InView } from 'react-intersection-observer';
@@ -51,34 +57,58 @@ const SERVICES = [
 	},
 ];
 
-const TESTIMONIALS = [
+const PAST_EXPERIENCE = [
 	{
-		avatar: TestimonialAvatarImg,
-		name: 'Fatima Elmagnifico',
+		source: PastExperience1Img,
 		description:
 			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
 	},
 	{
-		avatar: TestimonialAvatarImg,
-		name: 'Fatima Elmagnifico',
+		source: '/past-experience-video-1.mp4',
 		description:
 			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
 	},
 	{
-		avatar: TestimonialAvatarImg,
-		name: 'Fatima Elmagnifico',
+		source: PastExperience2Img,
 		description:
 			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
 	},
 	{
-		avatar: TestimonialAvatarImg,
-		name: 'Fatima Elmagnifico',
+		source: '/past-experience-video-2.mp4',
 		description:
 			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
 	},
 	{
-		avatar: TestimonialAvatarImg,
-		name: 'Fatima Elmagnifico',
+		source: PastExperience3Img,
+		description:
+			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
+	},
+	{
+		source: '/past-experience-video-3.mp4',
+		wide: true,
+		description:
+			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
+	},
+	{
+		source: PastExperience4Img,
+		description:
+			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
+	},
+	{
+		source: PastExperience5Img,
+		wide: true,
+		description:
+			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
+	},
+	{
+		source: PastExperience6Img,
+		wide: true,
+		description:
+			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
+	},
+	{
+		source: PastExperience7Img,
+		wide: true,
 		description:
 			'Neemah is an amazing organization, they are the best when it comes to this kinda job ',
 	},
@@ -86,36 +116,37 @@ const TESTIMONIALS = [
 
 export default function Home() {
 	const [services, setServices] = useState(SERVICES.slice(0, 3));
-	const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+	const [currentPastExperienceIndex, setCurrentPastExperienceIndex] =
+		useState(0);
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [navInView, setNavInView] = useState(true);
 	const maxScrollWidth = useRef(0);
 	const carousel = useRef<HTMLDivElement>(null);
 
-	const moveToPreviousTestimonialItem = () => {
-		if (currentTestimonialIndex > 0) {
-			setCurrentTestimonialIndex((prevState) => prevState - 1);
+	const moveToPreviousPastExperienceItem = () => {
+		if (currentPastExperienceIndex > 0) {
+			setCurrentPastExperienceIndex((prevState) => prevState - 1);
 		}
 	};
 
-	const moveToNextTestimonialItem = () => {
+	const moveToNextPastExperienceItem = () => {
 		if (
 			carousel.current !== null &&
-			carousel.current.offsetWidth * currentTestimonialIndex <=
+			carousel.current.offsetWidth * currentPastExperienceIndex <=
 				maxScrollWidth.current
 		) {
-			setCurrentTestimonialIndex((prevState) => prevState + 1);
+			setCurrentPastExperienceIndex((prevState) => prevState + 1);
 		}
 	};
 
 	const isDisabled = (direction: 'prev' | 'next') => {
 		if (direction === 'prev') {
-			return currentTestimonialIndex <= 0;
+			return currentPastExperienceIndex <= 0;
 		}
 
 		if (direction === 'next' && carousel.current !== null) {
 			return (
-				carousel.current.offsetWidth * currentTestimonialIndex >=
+				carousel.current.offsetWidth * currentPastExperienceIndex >=
 				maxScrollWidth.current
 			);
 		}
@@ -126,9 +157,9 @@ export default function Home() {
 	useEffect(() => {
 		if (carousel !== null && carousel.current !== null) {
 			carousel.current.scrollLeft =
-				carousel.current.offsetWidth * currentTestimonialIndex;
+				carousel.current.offsetWidth * currentPastExperienceIndex;
 		}
-	}, [currentTestimonialIndex]);
+	}, [currentPastExperienceIndex]);
 
 	useEffect(() => {
 		maxScrollWidth.current = carousel.current
@@ -194,8 +225,13 @@ export default function Home() {
 						</a>
 					</li>
 					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
-						<a href='#testimonial' onClick={() => setMobileMenuOpen(false)}>
-							Testimonials
+						<a href='#how-to-invest' onClick={() => setMobileMenuOpen(false)}>
+							Investment Opportunity
+						</a>
+					</li>
+					<li className='transition-all hover:-translate-y-2 hover:scale-105'>
+						<a href='#past-experience' onClick={() => setMobileMenuOpen(false)}>
+							Past Experience
 						</a>
 					</li>
 				</ul>
@@ -215,13 +251,13 @@ export default function Home() {
 				<div className='container mx-auto text-center mt-[11rem] lg:mt-[13.44rem] pb-[19.15rem] text-white px-4 lg:px-0'>
 					<div className='flex flex-col gap-y-10 lg:w-1/2 mx-auto items-center'>
 						<h1 className='text-[1.7rem] lg:text-[4.25rem] lg:leading-[5.25rem] font-bold animate-reveal'>
-							Start to contribute with a reliable farmer
+							Impact lives and become richer by investing in a reliable farmer
 						</h1>
 						<h6 className='text-base lg:text-3xl font-normal animate-reveal-1 font-aeonik'>
 							Operation feed the Nation
 						</h6>
 						<a
-							href='#about-us'
+							href='#how-to-invest'
 							className='py-4 px-[1.63rem] border border-white bg-white text-black rounded-[6.3rem] w-fit font-normal text-[0.88rem] lg:text-[1.38rem] hover:bg-transparent hover:text-white animate-reveal-2 font-aeonik'
 						>
 							Learn more
@@ -378,18 +414,15 @@ export default function Home() {
 						Account as shown below:
 					</p>
 
-					<div className='grid lg:grid-cols-2 mt-20'>
-						<div className='flex mx-auto lg:mx-0'>
-							<span className='bg-primary rounded-full text-white text-[1.1rem] lg:text-[1.75rem] w-[2.3rem] h-[2.3rem] lg:w-[3.625rem] lg:h-[3.625rem] flex justify-center items-center mr-[1.38rem] lg:mr-[3.875rem]'>
-								1
-							</span>
+					<div className='mt-20'>
+						<div className='flex mx-auto justify-center text-center'>
 							<ul className='flex flex-col gap-y-[1.88rem]'>
 								<li className='flex flex-col gap-y-[0.375rem]'>
 									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
 										Account number:
 									</span>
 									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
-										0009511763
+										0504083502
 									</span>
 								</li>
 								<li className='flex flex-col gap-y-[0.375rem]'>
@@ -397,7 +430,7 @@ export default function Home() {
 										Bank name:
 									</span>
 									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
-										Jaiz bank
+										Sterling Bank
 									</span>
 								</li>
 								<li className='flex flex-col gap-y-[0.375rem]'>
@@ -405,38 +438,7 @@ export default function Home() {
 										Account name:
 									</span>
 									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
-										Neemah&Co. Integrated farms Ltd.
-									</span>
-								</li>
-							</ul>
-						</div>
-						<div className='flex mt-10 lg:mt-0 mx-auto lg:mx-0'>
-							<span className='bg-primary rounded-full text-white text-[1.1rem] lg:text-[1.75rem] w-[2.3rem] h-[2.3rem] lg:w-[3.625rem] lg:h-[3.625rem] flex justify-center items-center mr-[1.38rem] lg:mr-[3.875rem]'>
-								2
-							</span>
-							<ul className='flex flex-col gap-y-[1.88rem]'>
-								<li className='flex flex-col gap-y-[0.375rem]'>
-									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
-										Account number:
-									</span>
-									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
-										1000411658
-									</span>
-								</li>
-								<li className='flex flex-col gap-y-[0.375rem]'>
-									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
-										Bank name:
-									</span>
-									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
-										Lotus Bank
-									</span>
-								</li>
-								<li className='flex flex-col gap-y-[0.375rem]'>
-									<span className='text-black font-medium text-base lg:text-[1.75rem]'>
-										Account name:
-									</span>
-									<span className='text-text font-normal text-[0.95rem] lg:text-[1.57rem] font-aeonik'>
-										Neemah&Co. Integrated farms Ltd.
+										Neemah & Co. Integrated farms Ltd.
 									</span>
 								</li>
 							</ul>
@@ -458,7 +460,7 @@ export default function Home() {
 				</section>
 
 				<section
-					id='testimonial'
+					id='past-experience'
 					className='container mx-auto pb-16 lg:pb-[10.15rem] px-4 lg:px-0'
 				>
 					<div className='flex justify-between'>
@@ -469,7 +471,7 @@ export default function Home() {
 							<button
 								className='bg-primary rounded-full text-white text-[1.75rem] w-[3.625rem] h-[3.625rem] flex justify-center items-center mr-8 disabled:bg-text'
 								disabled={isDisabled('prev')}
-								onClick={moveToPreviousTestimonialItem}
+								onClick={moveToPreviousPastExperienceItem}
 							>
 								<svg
 									width='25'
@@ -489,7 +491,7 @@ export default function Home() {
 							<button
 								className='bg-primary rounded-full text-white text-[1.75rem] w-[3.625rem] h-[3.625rem] flex justify-center items-center disabled:bg-text'
 								disabled={isDisabled('next')}
-								onClick={moveToNextTestimonialItem}
+								onClick={moveToNextPastExperienceItem}
 							>
 								<svg
 									width='25'
@@ -511,11 +513,14 @@ export default function Home() {
 
 					<div
 						ref={carousel}
-						style={{ ['--total' as string]: TESTIMONIALS.length }}
-						className='mt-6 lg:mt-[4.5rem] overflow-x-hidden snap-x snap-mandatory touch-pan-x grid gap-x-[4.75rem] [grid-template-columns:repeat(var(--total),calc(100%))] lg:[grid-template-columns:repeat(var(--total),calc(50%-4.75rem/2))] pb-5'
+						style={{ ['--total' as string]: PAST_EXPERIENCE.length }}
+						className='mt-6 lg:mt-[4.5rem] overflow-x-hidden snap-x snap-mandatory touch-pan-x grid gap-x-6 [grid-template-columns:repeat(var(--total),calc(100%))] lg:[grid-template-columns:repeat(var(--total),calc(33.33%-1.5rem/2))] pb-5'
 					>
-						{TESTIMONIALS.map((testimonial, index) => (
-							<TestimonialCard key={`testimonial-${index}`} {...testimonial} />
+						{PAST_EXPERIENCE.map((pastExperience, index) => (
+							<PastExperienceCard
+								key={`past-experience-${index}`}
+								{...pastExperience}
+							/>
 						))}
 					</div>
 
@@ -523,7 +528,7 @@ export default function Home() {
 						<button
 							className='bg-primary rounded-full text-white w-[1.65rem] h-[1.65rem] lg:w-[3.625rem] lg:h-[3.625rem] flex justify-center items-center mr-8 disabled:bg-text'
 							disabled={isDisabled('prev')}
-							onClick={moveToPreviousTestimonialItem}
+							onClick={moveToPreviousPastExperienceItem}
 						>
 							<svg
 								width='16'
@@ -543,7 +548,7 @@ export default function Home() {
 						<button
 							className='bg-primary rounded-full text-white w-[1.65rem] h-[1.65rem] lg:w-[3.625rem] lg:h-[3.625rem] flex justify-center items-center disabled:bg-text'
 							disabled={isDisabled('next')}
-							onClick={moveToNextTestimonialItem}
+							onClick={moveToNextPastExperienceItem}
 						>
 							<svg
 								width='16'

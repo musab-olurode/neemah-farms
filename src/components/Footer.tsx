@@ -51,8 +51,13 @@ const Footer = ({ services, setServices }: FooterProps) => {
 							</a>
 						</li>
 						<li>
-							<a href='#testimonial' title='Testimonial'>
-								Testimonial
+							<a href='#how-to-invest' title='Investment Opportunity'>
+								Investment Opportunity
+							</a>
+						</li>
+						<li>
+							<a href='#past-experience' title='Past Experience'>
+								Past Experience
 							</a>
 						</li>
 					</ul>

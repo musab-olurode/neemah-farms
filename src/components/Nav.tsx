@@ -24,7 +24,7 @@ const Nav = ({
 					fill
 				/>
 			</div>
-			<div className='hidden lg:relative w-[6.47rem] h-[6.65rem]'>
+			<div className='hidden lg:block relative w-[6.47rem] h-[6.65rem]'>
 				<Image
 					className='object-contain'
 					src={LogoImg}
@@ -33,25 +33,38 @@ const Nav = ({
 					fill
 				/>
 			</div>
-			<div className='mx-auto hidden lg:block'>
-				<ul className='flex gap-x-8 font-normal text-[1.38rem] font-aeonik'>
+			<div className='mx-auto hidden lg:block px-2'>
+				<ul className='flex gap-x-8 font-normal text-[1.38rem] font-aeonik whitespace-nowrap'>
 					<li>
-						<a href='#hero'>Home</a>
+						<a href='#hero' title='Home'>
+							Home
+						</a>
 					</li>
 					<li>
-						<a href='#about-us'>About Us</a>
+						<a href='#about-us' title='About us'>
+							About us
+						</a>
 					</li>
 					<li>
-						<a href='#services'>Services</a>
+						<a href='#services' title='Services'>
+							Services
+						</a>
 					</li>
 					<li>
-						<a href='#testimonial'>Testimonials</a>
+						<a href='#how-to-invest' title='Investment Opportunity'>
+							Investment Opportunity
+						</a>
+					</li>
+					<li>
+						<a href='#past-experience' title='Past Experience'>
+							Past Experience
+						</a>
 					</li>
 				</ul>
 			</div>
 			<a
 				href='#how-to-invest'
-				className='py-4 px-[1.63rem] border border-white rounded-[6.3rem] font-normal text-[1.38rem] hover:bg-white hover:text-black hidden lg:block font-aeonik'
+				className='py-4 px-[1.63rem] border border-white rounded-[6.3rem] font-normal text-[1.38rem] hover:bg-white hover:text-black hidden lg:block font-aeonik whitespace-nowrap'
 			>
 				Contact us
 			</a>
