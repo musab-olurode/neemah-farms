@@ -2,8 +2,8 @@ import { CSSProperties, useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Nav from '../components/Nav';
-import aboutUs1Img from '../../public/about-us-1.png';
-import aboutUs2Img from '../../public/about-us-2.png';
+import aboutUs1Img from '../../public/past-experience-1.jpg';
+import aboutUs2Img from '../../public/maize.png';
 import SoyaImg from '../../public/soya.png';
 import RiceImg from '../../public/rice.png';
 import SorghumImg from '../../public/sorghum.png';
@@ -118,6 +118,7 @@ export default function Home() {
 	const [services, setServices] = useState(SERVICES.slice(0, 3));
 	const [currentPastExperienceIndex, setCurrentPastExperienceIndex] =
 		useState(0);
+	const [isCarouselPaused, setIsCarouselPaused] = useState(false);
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [navInView, setNavInView] = useState(true);
 	const maxScrollWidth = useRef(0);
@@ -159,6 +160,18 @@ export default function Home() {
 			carousel.current.scrollLeft =
 				carousel.current.offsetWidth * currentPastExperienceIndex;
 		}
+
+		const pastExperienceInterval = setInterval(() => {
+			if (!isCarouselPaused) {
+				if (isDisabled('next')) {
+					setCurrentPastExperienceIndex(0);
+				} else {
+					moveToNextPastExperienceItem();
+				}
+			}
+		}, 2000);
+
+		return () => clearInterval(pastExperienceInterval);
 	}, [currentPastExperienceIndex]);
 
 	useEffect(() => {
@@ -249,9 +262,9 @@ export default function Home() {
 					/>
 				</InView>
 				<div className='container mx-auto text-center mt-[11rem] lg:mt-[13.44rem] pb-[19.15rem] text-white px-4 lg:px-0'>
-					<div className='flex flex-col gap-y-10 lg:w-1/2 mx-auto items-center'>
+					<div className='flex flex-col gap-y-10 lg:w-2/3 mx-auto items-center'>
 						<h1 className='text-[1.7rem] lg:text-[4.25rem] lg:leading-[5.25rem] font-bold animate-reveal'>
-							Impact lives and become richer by investing in a reliable farmer
+							Start to invest with a reliable farmer to make impact
 						</h1>
 						<h6 className='text-base lg:text-3xl font-normal animate-reveal-1 font-aeonik'>
 							Operation feed the Nation
@@ -281,9 +294,9 @@ export default function Home() {
 							</p>
 							<div className='w-full relative  h-[16.8rem] lg:h-[29.45rem] mt-6 lg:mt-[4.5rem]'>
 								<Image
-									className='object-cover'
+									className='object-cover object-[center_40%]'
 									src={aboutUs1Img}
-									alt='Picture of a woman in a swing'
+									alt='Picture of a farmer holding a large catfish'
 									placeholder='blur'
 									fill
 								/>
@@ -294,7 +307,7 @@ export default function Home() {
 								<Image
 									className='object-cover'
 									src={aboutUs2Img}
-									alt='Picture of 2 people holding hands while on skateboards'
+									alt='Picture of a maize plantation'
 									placeholder='blur'
 									fill
 								/>
@@ -514,12 +527,14 @@ export default function Home() {
 					<div
 						ref={carousel}
 						style={{ ['--total' as string]: PAST_EXPERIENCE.length }}
-						className='mt-6 lg:mt-[4.5rem] overflow-x-hidden snap-x snap-mandatory touch-pan-x grid gap-x-6 [grid-template-columns:repeat(var(--total),calc(100%))] lg:[grid-template-columns:repeat(var(--total),calc(33.33%-1.5rem/2))] pb-5'
+						className='mt-6 lg:mt-[4.5rem] overflow-x-scroll snap-x snap-mandatory grid gap-x-6 [grid-template-columns:repeat(var(--total),calc(100%))] lg:[grid-template-columns:repeat(var(--total),calc(33.33%-1.5rem/2))] pb-5 scrollbar-hidden'
 					>
 						{PAST_EXPERIENCE.map((pastExperience, index) => (
 							<PastExperienceCard
 								key={`past-experience-${index}`}
 								{...pastExperience}
+								onHover={() => setIsCarouselPaused(true)}
+								onStopHover={() => setIsCarouselPaused(false)}
 							/>
 						))}
 					</div>

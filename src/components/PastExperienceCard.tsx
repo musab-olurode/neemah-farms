@@ -6,12 +6,25 @@ export interface PastExperienceCardProps {
 	source: string | StaticImageData;
 	wide?: boolean;
 	description: string;
+	onHover: () => void;
+	onStopHover: () => void;
 }
 
-const PastExperienceCard = ({ source, wide }: PastExperienceCardProps) => {
+const PastExperienceCard = ({
+	source,
+	wide,
+	onHover,
+	onStopHover,
+}: PastExperienceCardProps) => {
 	return (
 		<div className='snap-center'>
-			<div className='relative aspect-[20/27] overflow-hidden'>
+			<div
+				className='relative aspect-[20/27] overflow-hidden'
+				onMouseEnter={() => onHover()}
+				onMouseLeave={() => onStopHover()}
+				onTouchStart={() => onHover()}
+				onTouchEnd={() => onStopHover()}
+			>
 				{typeof source !== 'string' ? (
 					<Image
 						className={clsx(

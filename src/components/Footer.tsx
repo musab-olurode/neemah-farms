@@ -26,8 +26,12 @@ const Footer = ({ services, setServices }: FooterProps) => {
 						31, Biada, Gaa akanbi, Ilorin, <br className='lg:hidden' /> Kwara
 						State, Nigeria.
 					</div>
-					<div>
+					<div className='mb-4 leading-[2.125rem]'>
 						Phone no: <a href='tel:+234896745347'>+234896745347</a>
+					</div>
+					<div>
+						Email:{' '}
+						<a href='mailto:neemahfarms@gmail.com'>neemahfarms@gmail.com</a>
 					</div>
 				</div>
 				<div>
