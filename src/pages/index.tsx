@@ -160,6 +160,13 @@ export default function Home() {
 			carousel.current.scrollLeft =
 				carousel.current.offsetWidth * currentPastExperienceIndex;
 		}
+	}, [currentPastExperienceIndex]);
+
+	useEffect(() => {
+		if (carousel !== null && carousel.current !== null) {
+			carousel.current.scrollLeft =
+				carousel.current.offsetWidth * currentPastExperienceIndex;
+		}
 
 		const pastExperienceInterval = setInterval(() => {
 			if (!isCarouselPaused) {
@@ -172,7 +179,7 @@ export default function Home() {
 		}, 2000);
 
 		return () => clearInterval(pastExperienceInterval);
-	}, [currentPastExperienceIndex]);
+	}, [currentPastExperienceIndex, isCarouselPaused]);
 
 	useEffect(() => {
 		maxScrollWidth.current = carousel.current
