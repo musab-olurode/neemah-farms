@@ -271,7 +271,7 @@ export default function Home() {
 				<div className='container mx-auto text-center mt-[11rem] lg:mt-[13.44rem] pb-[19.15rem] text-white px-4 lg:px-0'>
 					<div className='flex flex-col gap-y-10 lg:w-2/3 mx-auto items-center'>
 						<h1 className='text-[1.7rem] lg:text-[4.25rem] lg:leading-[5.25rem] font-bold animate-reveal'>
-							Start to invest with a reliable farmer to make impact
+							Invest in a reliable farmer to make Impacts
 						</h1>
 						<h6 className='text-base lg:text-3xl font-normal animate-reveal-1 font-aeonik'>
 							Operation feed the Nation
